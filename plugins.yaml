@@ -1,0 +1,10 @@
+plugins:
+    the-shadowmen/nostromo:
+        - size
+        - label
+        - hold
+        - assign
+        - blunderbuss
+        - lifecycle
+        - verify-owners
+        - wip
