@@ -1,5 +1,5 @@
 plugins:
-    the-shadowmen/nostromo:
+    the-shadowmen:
         - size
         - label
         - hold
@@ -8,3 +8,8 @@ plugins:
         - lifecycle
         - verify-owners
         - wip
+
+    the-shadowmen/kubevirt.github.io:
+        - approve
+        - lgtm
+        - owners-label
