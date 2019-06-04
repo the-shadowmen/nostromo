@@ -1,10 +1,21 @@
+---
 plugins:
-    the-shadowmen/nostromo:
-        - size
-        - label
-        - hold
-        - assign
-        - blunderbuss
-        - lifecycle
-        - verify-owners
-        - wip
+  the-shadowmen:
+  - size
+  - label
+  - hold
+  - assign
+  - blunderbuss
+  - lifecycle
+  - verify-owners
+  - wip
+
+  the-shadowmen/nostromo:
+  - approve
+  - lgtm
+  - owners-label 
+
+  the-shadowmen/kubevirt.github.io:
+  - approve
+  - lgtm
+  - owners-label
