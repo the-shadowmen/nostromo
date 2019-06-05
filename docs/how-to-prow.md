@@ -6,19 +6,34 @@ Prow is a Kubernetes based CI/CD system. Jobs can be triggered by various types 
 
 ## Articles to read and understand
 
+### Introduction
+
 - Readme file: https://github.com/kubernetes/test-infra/blob/master/prow/README.md
 - Command Help: https://prow.k8s.io/command-help
 - Prow Go Doc: https://godoc.org/k8s.io/test-infra/prow
 - Mandatory Article to read: https://kurtmadel.com/posts/native-kubernetes-continuous-delivery/prow/
 - Prow Quickstart: https://github.com/kubernetes/test-infra/blob/master/prow/getting_started_deploy.md
 - Prow Images: https://github.com/kubernetes/test-infra/blob/master/prow/cmd/README.md#core-components
-- Prow Jobs: https://kurtmadel.com/posts/native-kubernetes-continuous-delivery/prow/#prow-is-a-ci-cd-job-executor
+- Prow PR Workflow: https://raw.githubusercontent.com/kubernetes/test-infra/master/prow/docs/pr-interactions-sequence.svg?sanitize=true
+
+### Prow Plugins
+
+- Prow Plugins: https://prow.k8s.io/plugins
+- Prow Code-Review process: https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#the-code-review-process
+
+### Prow Jobs
+
+- Prow Jobs overview: https://kurtmadel.com/posts/native-kubernetes-continuous-delivery/prow/#prow-is-a-ci-cd-job-executor
 - Life of a Prow Job: https://github.com/kubernetes/test-infra/blob/master/prow/life_of_a_prow_job.md
     - Webhook Payload sample: https://github.com/kubernetes/test-infra/tree/c8829eef589a044126289cb5b4dc8e85db3ea22f/prow/cmd/phony/examples
-- PR Workflow: https://raw.githubusercontent.com/kubernetes/test-infra/master/prow/docs/pr-interactions-sequence.svg?sanitize=true
-- Prow Plugins: https://prow.k8s.io/plugins
+- Prow Jobs Deep Dive:
+    - https://github.com/kubernetes/test-infra/blob/master/prow/jobs.md
+    - https://github.com/kubernetes/test-infra/tree/master/prow/cmd/phaino
+    - https://github.com/kubernetes/test-infra/blob/master/prow/cmd/tide/config.md
+
+### Others
+
 - Another useful Article: https://kurtmadel.com/posts/native-kubernetes-continuous-delivery/native-k8s-cd/
-- Etherpad: http://etherpad.corp.redhat.com/At3hwuEcd7
 - Kubevirt Project-Infra: https://github.com/kubevirt/project-infra
 - NGINX Ingress Controller:
 	- https://github.com/kubernetes/ingress-nginx
@@ -26,7 +41,6 @@ Prow is a Kubernetes based CI/CD system. Jobs can be triggered by various types 
 	- https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples
 
 ## Hands on
-
 
 - Following **https://github.com/kubernetes/test-infra/blob/master/prow/getting_started_deploy.md**
 - Deploy instance on libvirt with terraform:
