@@ -19,3 +19,9 @@ plugins:
   - approve
   - lgtm
   - owners-label
+
+lgtm:
+- repos:
+  - the-shadowmen/nostromo
+  - the-shadowmen/kubevirt.github.io
+  review_acts_as_lgtm: true
