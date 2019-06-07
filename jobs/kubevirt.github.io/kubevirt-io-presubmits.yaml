@@ -1,0 +1,20 @@
+presubmits:
+  kubevirt/kubevirt.github.io:
+  - name: website-link-checker 
+    always_run: true
+    optional: true
+    decorate: true
+    decoration_config:
+      timeout: 4h
+      grace_period: 5m
+    max_concurrency: 5
+    spec:
+      containers:
+      - image: docker.io/jekyll/jekyll 
+        command:
+        - "rake"
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            memory: "2Gi"

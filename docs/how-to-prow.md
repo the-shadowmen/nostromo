@@ -273,3 +273,13 @@ default:
 
 kubectl create configmap label-config --from-file=$HOME/prow_conf/labels.yaml -o yaml
 ```
+
+## Prototype
+
+We need to emulate what we're doing with Rake tool using Bazel or wrapping it up with that. For this we will use _github.com:the-shadowmen/kubevirt.github.io.git_, the important part is on `$REPO/scripts/BUILD` which contains the bazel build target, which will call to the `tests.sh` script and at last call the Rake function. Yeah, I know, it's not a great solution but I didn't see anyway to execute a CLI command that execute tests itself... (just genrule element but it's just for build step)
+
+The Prow job should call Bazel using this command: `bazel run --verbose_failures scripts:rake`. This is how looks like (it belongs to `config.yaml` file, then we need to upload the changes to the config map and re-launch the pods):
+
+```
+
+```

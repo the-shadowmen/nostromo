@@ -1,2 +1,27 @@
 prowjob_namespace: default
 pod_namespace: test-pods
+
+tide:
+    merge_method:
+        the-shadowmen/kubevirt.github.io: squash
+
+    target_url: http://kubevirt-prow-0.gce.sexylinux.net:30090/tide.html
+
+    queries:
+        - repos:
+            - the-shadowmen/kubevirt.github.io
+          labels:
+            - lgtm
+            - approved
+          missingLabels:
+            - do-not-merge
+            - do-not-merge/hold
+            - do-not-merge/work-in-progress
+            - needs-ok-to-test
+            - needs-rebase
+    pr_status_base_url: http://kubevirt-prow-0.gce.sexylinux.net:30090/pr
+    context_options:
+        # Use branch protection options to define required and optional contexts
+        from-branch-protection: false
+        # Treat unknown contexts as optional
+        skip-unknown-contexts: true
