@@ -25,3 +25,6 @@ tide:
         from-branch-protection: false
         # Treat unknown contexts as optional
         skip-unknown-contexts: true
+
+plank:
+    allow_cancellations: true
