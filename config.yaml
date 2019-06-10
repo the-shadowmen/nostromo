@@ -63,7 +63,7 @@ periodics:
       spec:
           containers:
               - image: ruby 
-                command: ["rake"]
+                command: ["ls"]
 postsubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-postsubmit
