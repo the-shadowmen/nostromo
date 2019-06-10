@@ -81,4 +81,4 @@ presubmits:
           spec:
               containers:
                   - image: alpine
-                   command: ["/bin/printenv"]
+                    command: ["/bin/printenv"]
