@@ -28,10 +28,10 @@ gcloud beta iam service-accounts create sa-comm-prow --description "SA for Prow 
 ## Grant write access to allow Prow to upload the content
 
 ## Serialize the new SA using a new key
-gcloud iam service-accounts keys create ~/private/sa-comm-prow.json --iam-account sa-comm-prow@cnvlab-209908.iam.gserviceaccount.com
+gcloud iam service-accounts keys create ~/private/service-account.json --iam-account sa-comm-prow@cnvlab-209908.iam.gserviceaccount.com
 
 ## Create Secret file with the SA json file
-kubectl create secret generic gcs-credentials --from-file=sa-comm-prow.json
+kubectl create secret generic gcs --from-file=service-account.json
 
 ## Check prow config and Submit
 ## Use the nostromo repository to find the config.yaml and plugins.yaml files
@@ -39,6 +39,7 @@ run --verbose_failures //prow/cmd/checkconfig -- \
     --plugin-config=/home/jparrill/ownCloud/RedHat/RedHat_Engineering/kubevirt/CI-CD/Prow/repos/nostromo/plugins.yaml \
     --config-path=/home/jparrill/ownCloud/RedHat/RedHat_Engineering/kubevirt/CI-CD/Prow/repos/nostromo/config.yaml
 
+# Use make u
 
 ```
 

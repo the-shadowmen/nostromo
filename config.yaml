@@ -58,12 +58,12 @@ deck:
 
 periodics:
     - interval: 10m
-      name: parri-echo-test
+      name: kubevirt-io-link-tests
       decorate: true
       spec:
           containers:
-              - image: alpine
-                command: ["/bin/date"]
+              - image: ruby 
+                command: ["rake"]
 postsubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-postsubmit
