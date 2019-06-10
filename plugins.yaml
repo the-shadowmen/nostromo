@@ -9,6 +9,7 @@ plugins:
   - lifecycle
   - verify-owners
   - wip
+  - trigger
 
   the-shadowmen/nostromo:
   - approve

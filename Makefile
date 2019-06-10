@@ -1,4 +1,9 @@
-.PHONY: update-config update-plugins update-labels
+# These are the usual GKE variables.
+PROJECT       ?= cnvlab
+ZONE          ?= europe-west4
+CLUSTER       ?= prow
+
+.PHONY: update-config update-plugins update-labels get-cluster-credentials
 
 update-config:
 	kubectl create configmap config --from-file=config.yaml=config.yaml --dry-run -o yaml | kubectl replace configmap config -f -
@@ -8,3 +13,6 @@ update-plugins:
 
 update-labels:
 	kubectl create configmap label-config --from-file=labels.yaml=labels.yaml --dry-run -o yaml | kubectl replace configmap plugins -f -
+
+get-cluster-credentials:
+	gcloud container clusters get-credentials "$(CLUSTER)" --project="$(PROJECT)" --zone="$(ZONE)"
