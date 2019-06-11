@@ -58,7 +58,7 @@ deck:
 
 periodics:
     - interval: 10m
-      name: kubevirt-io-link-tests
+      name: kubevirt-io-link-tester
       decorate: true
       spec:
           containers:
@@ -70,8 +70,8 @@ postsubmits:
           decorate: true
           spec:
               containers:
-                  - image: alpine
-                    command: ["/bin/printenv"]
+                  - image: ruby
+                    command: ["ls"]
 presubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-presubmit
@@ -80,5 +80,5 @@ presubmits:
           skip_report: true
           spec:
               containers:
-                  - image: alpine
-                    command: ["/bin/printenv"]
+                  - image: ruby
+                    command: ["ls"]
