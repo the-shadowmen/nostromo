@@ -86,9 +86,7 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "/usr/local/bin/runner.sh"
-                        - "/bin/sh"
-                        - "-c"
-                        - "rake"
+                        - "ls"
+                        - "/usr/local/bin"
                     securityContext:
                         privileged: true
