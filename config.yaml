@@ -86,7 +86,7 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command: ["/bin/sh", "-c"]
-                    args: ["ls -lahZ && echo && echo && ls -lahZ _site && whoami"]
+                    args: ["ls -lahZ && echo && echo && ls -lahZ _site && whoami && getenforce"]
                     #args: ["/usr/local/bin/bundle install && rake"]
                     securityContext:
                         privileged: true
