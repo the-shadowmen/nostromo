@@ -72,9 +72,9 @@ postsubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "gem install jekyll html-proofer &&"
-                        - "bundle install &&"
-                        - "rake"
+                        - "/usr/local/bin/gem install jekyll html-proofer &&"
+                        - "/usr/jekyll/bin/bundle install &&"
+                        - "/usr/local/bin/rake"
 presubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-presubmit
@@ -85,6 +85,6 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "gem install jekyll html-proofer &&"
-                        - "bundle install &&"
-                        - "rake"
+                        - "/usr/local/bin/gem install jekyll html-proofer &&"
+                        - "/usr/jekyll/bin/bundle install &&"
+                        - "/usr/local/bin/rake"
