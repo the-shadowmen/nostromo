@@ -70,7 +70,7 @@ postsubmits:
           decorate: true
           spec:
               containers:
-                  - image: jekyll/jekyll
+                  - image: docker.io/jekyll/jekyll
                     command:
                         - "gem install jekyll html-proofer &&"
                         - "bundle install &&"
@@ -83,7 +83,7 @@ presubmits:
           skip_report: true
           spec:
               containers:
-                  - image: jekyll/jekyll
+                  - image: docker.io/jekyll/jekyll
                     command:
                         - "gem install jekyll html-proofer &&"
                         - "bundle install &&"
