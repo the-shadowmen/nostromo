@@ -86,6 +86,6 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command: ["/bin/sh", "-c"]
-                    args: ["chmod 644 -R . && /usr/local/bin/bundle install && rake"]
+                    args: ["chmod -R 644 . && /usr/local/bin/bundle install && rake"]
                     securityContext:
                         privileged: true
