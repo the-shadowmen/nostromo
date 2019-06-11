@@ -86,7 +86,7 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-~                         - "/usr/local/bin/bundle"
-                          - "install && rake"
+                        - "/usr/local/bin/bundle"
+                        - "install && rake"
                     securityContext:
                         privileged: true
