@@ -72,7 +72,7 @@ postsubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "/usr/local/bin/gem install jekyll html-proofer; /usr/jekyll/bin/bundle install; /usr/local/bin/rake"
+                        - "ls /usr/local/bin"
 
 presubmits:
     the-shadowmen/kubevirt.github.io:
@@ -84,4 +84,4 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "/usr/local/bin/gem install jekyll html-proofer; /usr/jekyll/bin/bundle install; /usr/local/bin/rake"
+                        - "ls /usr/local/bin"
