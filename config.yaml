@@ -73,15 +73,19 @@ postsubmits:
                   - image: docker.io/jekyll/jekyll
                     command:
                         - "ls /usr/local/bin"
+                    securityContext:
+                        privileged: true
 
 presubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-presubmit
           decorate: true
           always_run: true
-          skip_report: true
+          skip_report: false
           spec:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
                         - "ls /usr/local/bin"
+                    securityContext:
+                        privileged: true
