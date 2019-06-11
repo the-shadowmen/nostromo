@@ -78,7 +78,7 @@ postsubmits:
 
 presubmits:
     the-shadowmen/kubevirt.github.io:
-        - name: parri-test-presubmit
+        - name: kubevirt-io-link-checker
           decorate: true
           always_run: true
           skip_report: false
@@ -86,6 +86,9 @@ presubmits:
               containers:
                   - image: docker.io/jekyll/jekyll
                     command:
-                        - "ls /usr/local/bin"
+                        - "/usr/local/bin/runner.sh"
+                        - "/bin/sh"
+                        - "-c"
+                        - "rake"
                     securityContext:
                         privileged: true
