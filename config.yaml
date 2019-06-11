@@ -58,8 +58,10 @@ deck:
 
 periodics:
     - interval: 10m
-      name: kubevirt-io-link-tester
+      name: periodic-kubevirt-io-link-tester
       decorate: true
+      branches:
+          - ^master$
       spec:
           containers:
               - image: ruby 
@@ -71,7 +73,7 @@ postsubmits:
           spec:
               containers:
                   - image: ruby
-                    command: ["ls"]
+                    command: ["rake"]
 presubmits:
     the-shadowmen/kubevirt.github.io:
         - name: parri-test-presubmit
@@ -81,4 +83,4 @@ presubmits:
           spec:
               containers:
                   - image: ruby
-                    command: ["ls"]
+                    command: ["rake"]
