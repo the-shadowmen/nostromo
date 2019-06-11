@@ -60,8 +60,6 @@ periodics:
     - interval: 10m
       name: periodic-kubevirt-io-link-tester
       decorate: true
-      branches:
-          - ^master$
       spec:
           containers:
               - image: ruby 
@@ -72,7 +70,7 @@ postsubmits:
           decorate: true
           spec:
               containers:
-                  - image: jekyll
+                  - image: jekyll/jekyll
                     command:
                         - "gem install jekyll html-proofer &&"
                         - "bundle install &&"
@@ -85,7 +83,7 @@ presubmits:
           skip_report: true
           spec:
               containers:
-                  - image: jekyll
+                  - image: jekyll/jekyll
                     command:
                         - "gem install jekyll html-proofer &&"
                         - "bundle install &&"
