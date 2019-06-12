@@ -56,7 +56,7 @@ deck:
       "artifacts/junit.*\\.xml": ["junit-viewer"]
 
 periodics:
-  - interval: 1h
+  - interval: 24h
     name: kubevirt-io-periodic-link-checker
     decorate: true
     spec:
