@@ -70,9 +70,9 @@ postsubmits:
           decorate: true
           spec:
               containers:
-                  - image: docker.io/jekyll/jekyll
-                    command:
-                        - "ls /usr/local/bin"
+                  - image: docker.io/library/ruby:2.3.3
+                    command: ["/bin/sh", "-c"]
+                    args: ["/usr/local/bin/bundle install && rake"]
                     securityContext:
                         privileged: true
 
