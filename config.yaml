@@ -5,7 +5,6 @@ log_level: debug
 tide:
     merge_method:
         the-shadowmen/kubevirt.github.io: squash
-    target_url: http://kubevirt-prow-0.gce.sexylinux.net:30090/tide.html
     queries:
         - repos:
             - the-shadowmen/kubevirt.github.io
@@ -18,7 +17,7 @@ tide:
             - do-not-merge/work-in-progress
             - do-not-merge/invalid-owners-file
             - needs-ok-to-test
-    pr_status_base_url: http://kubevirt-prow-0.gce.sexylinux.net:30090/pr
+    pr_status_base_url: http://kubevirt-prow-0.gce.sexylinux.net:30000/pr
     context_options:
         # Use branch protection options to define required and optional contexts
         from-branch-protection: false
@@ -57,20 +56,30 @@ deck:
             "artifacts/junit.*\\.xml": ["junit-viewer"]
 
 periodics:
-    - interval: 10m
+    - interval: 1h
       name: periodic-kubevirt-io-link-tester
       decorate: true
       spec:
           containers:
-              - image: ruby 
-                command: ["ls"]
+              - image: docker.io/library/ruby
+                env:
+                    - name: "NOKOGIRI_USE_SYSTEM_LIBRARIES"
+                      value: "true"
+                command: ["/bin/sh", "-c"]
+                args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && rake"]
+                securityContext:
+                    privileged: true
+
 postsubmits:
     the-shadowmen/kubevirt.github.io:
-        - name: parri-test-postsubmit
+        - name: kubevirt-io-postsubmit-link-checker
           decorate: true
           spec:
               containers:
-                  - image: docker.io/library/ruby:2.3.3
+                  - image: docker.io/library/ruby
+                    env:
+                        - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
+                          value: "true"
                     command: ["/bin/sh", "-c"]
                     args: ["/usr/local/bin/bundle install && rake"]
                     securityContext:
@@ -84,7 +93,10 @@ presubmits:
           skip_report: false
           spec:
               containers:
-                  - image: docker.io/library/ruby:2.3.3
+                  - image: docker.io/library/ruby
+                    env:
+                        - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
+                          value: "true"
                     command: ["/bin/sh", "-c"]
                     args: ["/usr/local/bin/bundle install && rake"]
                     securityContext:
