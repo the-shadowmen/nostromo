@@ -57,7 +57,7 @@ deck:
 
 periodics:
     - interval: 1h
-      name: periodic-kubevirt-io-link-tester
+      name: periodic-kubevirt-io-link-checker
       decorate: true
       spec:
           containers:
@@ -66,7 +66,7 @@ periodics:
                     - name: "NOKOGIRI_USE_SYSTEM_LIBRARIES"
                       value: "true"
                 command: ["/bin/sh", "-c"]
-                args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && rake"]
+                args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
                 securityContext:
                     privileged: true
 
@@ -81,7 +81,7 @@ postsubmits:
                         - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
                           value: "true"
                     command: ["/bin/sh", "-c"]
-                    args: ["/usr/local/bin/bundle install && rake"]
+                    args: ["/usr/local/bin/bundle install && bundle exec rake"]
                     securityContext:
                         privileged: true
 
@@ -98,6 +98,6 @@ presubmits:
                         - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
                           value: "true"
                     command: ["/bin/sh", "-c"]
-                    args: ["/usr/local/bin/bundle install && rake"]
+                    args: ["/usr/local/bin/bundle install && bundle exec rake"]
                     securityContext:
                         privileged: true
