@@ -60,6 +60,8 @@ periodics:
     name: kubevirt-io-periodic-link-checker
     decorate: true
     spec:
+      nodeSelector:
++       region: primary
       containers:
         - image: docker.io/library/ruby
           env:
@@ -73,6 +75,8 @@ postsubmits:
     - name: kubevirt-io-postsubmit-link-checker
       decorate: true
       spec:
+        nodeSelector:
++         region: primary
         containers:
           - image: docker.io/library/ruby
             env:
@@ -88,6 +92,8 @@ presubmits:
       always_run: true
       skip_report: false
       spec:
+        nodeSelector:
++         region: primary
         containers:
           - image: docker.io/library/ruby
             env:
