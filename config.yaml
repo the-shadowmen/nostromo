@@ -67,8 +67,6 @@ periodics:
               value: "true"
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
-          securityContext:
-            privileged: true
 
 postsubmits:
   the-shadowmen/kubevirt.github.io:
@@ -82,8 +80,6 @@ postsubmits:
                 value: "true"
             command: ["/bin/sh", "-c"]
             args: ["/usr/local/bin/bundle install && bundle exec rake"]
-            securityContext:
-              privileged: true
 
 presubmits:
   the-shadowmen/kubevirt.github.io:
@@ -99,5 +95,3 @@ presubmits:
                 value: "true"
             command: ["/bin/sh", "-c"]
             args: ["/usr/local/bin/bundle install && bundle exec rake"]
-            securityContext:
-              privileged: true
