@@ -1,5 +1,6 @@
 # Prow Jobs
 
+## Hands on
 
 - **Following**: https://github.com/kubernetes/test-infra/blob/master/prow/getting_started_deploy.md
 
@@ -29,20 +30,15 @@ run --verbose_failures //prow/cmd/checkconfig -- \
     --plugin-config=/home/jparrill/ownCloud/RedHat/RedHat_Engineering/kubevirt/CI-CD/Prow/repos/nostromo/plugins.yaml \
     --config-path=/home/jparrill/ownCloud/RedHat/RedHat_Engineering/kubevirt/CI-CD/Prow/repos/nostromo/config.yaml
 
-# Use make u
-
+# Ensure that the new config are loaded before execute any other action, you could check it just seeing the Tide log
 ```
-
-
-## Tide
-
-Works as a separated component of Prow and needs some things to make them done before use it.
-
-### Pre-reqs for Tide
-
-- [You need to register a GH OAUTH app which will monitor the PRs statuses](https://github.com/kubernetes/test-infra/blob/master/prow/docs/pr_status_setup.md)
-
 
 ## References
 
-- https://github.com/kubernetes/test-infra/blob/master/prow/cmd/tide/maintainers.md#best-practices
+- Prow Jobs overview: https://kurtmadel.com/posts/native-kubernetes-continuous-delivery/prow/#prow-is-a-ci-cd-job-executor
+- Life of a Prow Job: https://github.com/kubernetes/test-infra/blob/master/prow/life_of_a_prow_job.md
+    - Webhook Payload sample: https://github.com/kubernetes/test-infra/tree/c8829eef589a044126289cb5b4dc8e85db3ea22f/prow/cmd/phony/examples
+- Prow Jobs Deep Dive:
+    - https://github.com/kubernetes/test-infra/blob/master/prow/jobs.md
+    - https://github.com/kubernetes/test-infra/tree/master/prow/cmd/phaino
+    - https://github.com/kubernetes/test-infra/blob/master/prow/cmd/tide/config.md
