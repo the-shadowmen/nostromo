@@ -5,9 +5,11 @@ log_level: debug
 tide:
   merge_method:
     the-shadowmen/kubevirt.github.io: squash
+    the-shadowmen/kubevirt-tutorial-fork: squash
   queries:
     - repos:
         - the-shadowmen/kubevirt.github.io
+        - the-shadowmen/kubevirt-tutorial-fork
       labels:
         - lgtm
         - approved
