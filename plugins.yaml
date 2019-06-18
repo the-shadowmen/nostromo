@@ -21,7 +21,7 @@ plugins:
   - lgtm
   - owners-label
 
-  the-shadowmen/kubevirt-tutorial-fork:
+  the-shadowmen/kubevirt-tutorial:
   - approve
   - lgtm
   - owners-label
@@ -30,5 +30,5 @@ lgtm:
 - repos:
   - the-shadowmen/nostromo
   - the-shadowmen/kubevirt.github.io
-  - the-shadowmen/kubevirt-tutorial-fork
+  - the-shadowmen/kubevirt-tutorial
   review_acts_as_lgtm: true
