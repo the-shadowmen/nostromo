@@ -86,6 +86,13 @@ periodics:
           args: ["yum install -y git docker && git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci/cluster-provision/k8s/1.13.3 && ./provision.sh && cd ../../../ && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
           securityContext:
             privileged: true
+          volumeMounts:
+            - name: docker-sock
+              mountPath: '/var/run/docker.sock'
+      volumes:
+        - name: docker-sock
+          hostPath: 
+            path: '/var/run/docker.sock'
 
 postsubmits:
   the-shadowmen/kubevirt.github.io:
