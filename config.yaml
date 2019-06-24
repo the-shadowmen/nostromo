@@ -81,9 +81,9 @@ periodics:
       nodeSelector:
         region: primary
       containers:
-         - image: kubevirtci/centos@sha256:70653d952edfb8002ab8efe9581d01960ccf21bb965a9b4de4775c8fbceaab39
-           command: ["/bin/sh", "-c"]
-           args: ["yum install -y git docker && git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci/cluster-provision/k8s/1.13.3 && ./provision.sh && cd ../../../ && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
+        - image: kubevirtci/centos@sha256:70653d952edfb8002ab8efe9581d01960ccf21bb965a9b4de4775c8fbceaab39
+          command: ["/bin/sh", "-c"]
+          args: ["yum install -y git docker && git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci/cluster-provision/k8s/1.13.3 && ./provision.sh && cd ../../../ && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
           securityContext:
             privileged: true
 
