@@ -86,12 +86,12 @@ periodics:
           #          args: ["yum install -y git docker && git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-up && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
         - image: gcr.io/k8s-testimages/bootstrap:v20190516-c6832d9
           command:
-          - "/usr/local/bin/runner.sh"
-          - "/bin/sh"
-          - "-c"
-          - "cd cluster-provision/k8s/1.13.3 && ./provision.sh"
-            securityContext:
-              privileged: true
+            - "/usr/local/bin/runner.sh"
+            - "/bin/sh"
+            - "-c"
+            - "cd cluster-provision/k8s/1.13.3 && ./provision.sh"
+          securityContext:
+            privileged: true
 
 postsubmits:
   the-shadowmen/kubevirt.github.io:
