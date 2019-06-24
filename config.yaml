@@ -59,6 +59,19 @@ deck:
       "build-log.txt": ["build-log-viewer"]
       "artifacts/junit.*\\.xml": ["junit-viewer"]
 
+presets:
+- labels:
+    preset-dind-enabled: "true"
+  env:
+  - name: DOCKER_IN_DOCKER_ENABLED
+    value: "true"
+  volumes:
+  - name: docker-graph
+    emptyDir: {}
+  volumeMounts:
+  - name: docker-graph
+    mountPath: /docker-graph
+
 periodics:
   - interval: 24h
     name: kubevirt-io-periodic-link-checker
@@ -77,6 +90,8 @@ periodics:
   - interval: 8m
     name: kubevirt-ci-periodic-test-lab
     decorate: true
+    labels:
+      preset-dind-enabled: "true"
     spec:
       nodeSelector:
         region: primary
@@ -125,3 +140,5 @@ presubmits:
                 value: "true"
             command: ["/bin/sh", "-c"]
             args: ["/usr/local/bin/bundle install && bundle exec rake"]
+
+
