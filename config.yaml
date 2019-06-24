@@ -65,7 +65,7 @@ periodics:
     decorate: true
     spec:
       nodeSelector:
-+       region: primary
+        region: primary
       containers:
         - image: docker.io/library/ruby
           env:
@@ -79,11 +79,11 @@ periodics:
     decorate: true
     spec:
       nodeSelector:
-+       region: primary
+        region: primary
       containers:
         - image: kubevirtci/centos@sha256:70653d952edfb8002ab8efe9581d01960ccf21bb965a9b4de4775c8fbceaab39
           command: ["/bin/sh", "-c"]
-          args: ["git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-up && export KUBECONFIG=$(cluster-up/kubeconfig.sh) && kubectl get pods"]
+          args: ["git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-up && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
 
 postsubmits:
   the-shadowmen/kubevirt.github.io:
@@ -91,7 +91,7 @@ postsubmits:
       decorate: true
       spec:
         nodeSelector:
-+         region: primary
+          region: primary
         containers:
           - image: docker.io/library/ruby
             env:
@@ -108,7 +108,7 @@ presubmits:
       skip_report: false
       spec:
         nodeSelector:
-+         region: primary
+          region: primary
         containers:
           - image: docker.io/library/ruby
             env:
