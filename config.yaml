@@ -89,7 +89,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "cd cluster-provision/k8s/1.13.3 && ./provision.sh"
+            - "yum install -y git && git clone https://github.com/the-shadowmen/kubevirtci && cd cluster-provision/k8s/1.13.3 && ./provision.sh && cd ../../../ && cluster-up/kubectl.sh get pods"
           securityContext:
             privileged: true
 
