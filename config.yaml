@@ -6,10 +6,12 @@ tide:
   merge_method:
     the-shadowmen/kubevirt.github.io: squash
     the-shadowmen/kubevirt-tutorial: squash
+    the-shadowmen/kubevirtci: squash
   queries:
     - repos:
         - the-shadowmen/kubevirt.github.io
         - the-shadowmen/kubevirt-tutorial
+        - the-shadowmen/kubevirtci
       labels:
         - lgtm
         - approved
@@ -71,6 +73,17 @@ periodics:
               value: "true"
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
+
+  - interval: 8m
+    name: kubevirt-ci-periodic-test-lab
+    decorate: true
+    spec:
+      nodeSelector:
++       region: primary
+      containers:
+        - image: kubevirtci/centos@sha256:70653d952edfb8002ab8efe9581d01960ccf21bb965a9b4de4775c8fbceaab39
+          command: ["/bin/sh", "-c"]
+          args: ["git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-up && export KUBECONFIG=$(cluster-up/kubeconfig.sh) && kubectl get pods"]
 
 postsubmits:
   the-shadowmen/kubevirt.github.io:

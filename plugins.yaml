@@ -16,6 +16,11 @@ plugins:
   - lgtm
   - owners-label 
 
+  the-shadowmen/kubevirtci:
+  - approve
+  - lgtm
+  - owners-label 
+
   the-shadowmen/kubevirt.github.io:
   - approve
   - lgtm
@@ -31,4 +36,5 @@ lgtm:
   - the-shadowmen/nostromo
   - the-shadowmen/kubevirt.github.io
   - the-shadowmen/kubevirt-tutorial
+  - the-shadowmen/kubevirtci
   review_acts_as_lgtm: true
