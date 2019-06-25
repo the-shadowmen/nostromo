@@ -112,6 +112,8 @@ periodics:
     decorate: true
     labels:
       preset-dind-enabled: "true"
+      preset-docker-mirror: "true"
+      preset-shared-images: "true"
     spec:
       nodeSelector:
         region: primary
