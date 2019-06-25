@@ -81,16 +81,6 @@ presets:
   - name: docker-config
     mountPath: /etc/default
     readOnly: true
-- labels:
-    preset-shared-images: "true"
-  volumes:
-  - name: shared-iso
-    hostPath:
-      path: /var/lib/stdci/shared/kubevirt-images/
-      type: DirectoryOrCreate
-  volumeMounts:
-  - name: shared-iso
-    mountPath: /var/lib/stdci/shared/kubevirt-images/
 
 periodics:
   - interval: 24h
@@ -113,7 +103,6 @@ periodics:
     labels:
       preset-dind-enabled: "true"
       preset-docker-mirror: "true"
-      preset-shared-images: "true"
     spec:
       nodeSelector:
         region: primary
