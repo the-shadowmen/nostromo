@@ -112,10 +112,12 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "export TARGET=k8s-1.13.3 && automation/test.sh"
+            - "sleep 500"
+              #- "export TARGET=k8s-1.13.3 && automation/test.sh"
           securityContext:
             privileged: true
 
+            #args: ["yum install -y git docker make && git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-down && make cluster-up && echo 'SLEEEEEEEEEEEPING...' && sleep 200 && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"]
 postsubmits:
   the-shadowmen/kubevirt.github.io:
     - name: kubevirt-io-postsubmit-link-checker
