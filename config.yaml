@@ -83,7 +83,7 @@ presets:
     readOnly: true
 
 periodics:
-  - interval: 24h
+  - interval: 30m
     name: kubevirt-io-periodic-link-checker
     decorate: true
     spec:
