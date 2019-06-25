@@ -112,7 +112,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "sleep 500"
+            - "git clone https://github.com/the-shadowmen/kubevirtci && cd kubevirtci && make cluster-up && cluster-up/kubectl.sh get nodes && cluster-up/kubectl.sh get pods"
               #- "export TARGET=k8s-1.13.3 && automation/test.sh"
           securityContext:
             privileged: true
