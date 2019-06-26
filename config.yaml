@@ -112,7 +112,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make test" 
+            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make tests" 
           securityContext:
             privileged: true
 
