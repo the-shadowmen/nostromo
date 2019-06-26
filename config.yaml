@@ -51,7 +51,7 @@ plank:
       path_strategy: "explicit"
     gcs_credentials_secret: "gcs"
 
-deck:
+deckh
   spyglass:
     size_limit: 500000000 # 500MB
     viewers:
@@ -83,7 +83,7 @@ presets:
     readOnly: true
 
 periodics:
-  - interval: 30m
+  - interval: 8h
     name: kubevirt-io-periodic-link-checker
     decorate: true
     spec:
@@ -97,7 +97,7 @@ periodics:
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
 
-  - interval: 8m
+  - interval: 8h
     name: kubevirt-ci-periodic-test-lab
     decorate: true
     labels:
