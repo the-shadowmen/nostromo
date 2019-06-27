@@ -83,7 +83,7 @@ presets:
     readOnly: true
 
 periodics:
-  - interval: 10m
+  - interval: 30m
     name: kubevirt-io-periodic-link-checker
     decorate: true
     spec:
@@ -112,7 +112,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make tests" 
+            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make tests && sleep 1000"
           securityContext:
             privileged: true
 
