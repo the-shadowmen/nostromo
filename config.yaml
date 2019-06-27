@@ -51,7 +51,7 @@ plank:
       path_strategy: "explicit"
     gcs_credentials_secret: "gcs"
 
-deckh
+deck:
   spyglass:
     size_limit: 500000000 # 500MB
     viewers:
