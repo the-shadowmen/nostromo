@@ -97,6 +97,20 @@ periodics:
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
 
+  - interval: 10m
+    name: kubevirt-io-periodic-release-changelog
+    decorate: true
+    spec:
+      nodeSelector:
+        region: primary
+      containers:
+        - image: docker.io/library/ruby
+          env:
+            - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
+              value: "true"
+          command: ["/bin/sh", "-c"]
+          args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && sleep 1000"]
+
   - interval: 24h
     name: kubevirt-ci-periodic-test-lab
     decorate: true
