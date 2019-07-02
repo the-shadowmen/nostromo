@@ -124,7 +124,7 @@ periodics:
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && sleep 1000"]
 
-  - interval: 8h
+  - interval: 10m
     name: kubevirt-ci-periodic-test-lab
     decorate: true
     labels:
