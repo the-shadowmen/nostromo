@@ -90,10 +90,10 @@ presets:
   - name: git-creds
     secret:
         defaultMode: 420
-        secretName: oauth-token
+        secretName: git-creds
   volumeMounts:
   - name: git-creds
-    mountPath: /etc/gh-token
+    mountPath: /etc/git-creds
     readOnly: true
 #######
 - labels:
