@@ -126,6 +126,7 @@ periodics:
     name: kubevirt-io-periodic-release-changelog
     decorate: true
     labels:
+      preset-gh-config: "true"
       preset-gh-pusher: "true"
     spec:
       nodeSelector:
