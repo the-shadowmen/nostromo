@@ -81,8 +81,7 @@ presets:
         secretName: git-config
   volumeMounts:
   - name: git-config
-    mountPath: /etc
-    subPath: /etc/gitconfig
+    mountPath: /etc/gitconfig
     readOnly: true
 #######
 - labels:
