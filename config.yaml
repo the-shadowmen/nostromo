@@ -139,7 +139,7 @@ periodics:
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && ./scripts/update_changelog.sh janitor-bot"]
 
-  - interval: 8h
+  - interval: 20m
     name: kubevirt-ci-periodic-test-lab
     decorate: true
     labels:
@@ -154,7 +154,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && sleep 400"
+            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make tests"
           securityContext:
             privileged: true
 
