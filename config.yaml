@@ -137,7 +137,7 @@ periodics:
             - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
               value: "true"
           command: ["/bin/sh", "-c"]
-          args: ["git clone -b feature/autorelease --single-branch https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && ./scripts/update_changelog.sh janitor-bot || sleep 300"]
+          args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && ./scripts/update_changelog.sh janitor-bot"]
 
   - interval: 8h
     name: kubevirt-ci-periodic-test-lab
