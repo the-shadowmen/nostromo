@@ -139,7 +139,7 @@ periodics:
           command: ["/bin/sh", "-c"]
           args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && ./scripts/update_changelog.sh janitor-bot"]
 
-  - interval: 10h
+  - interval: 10m
     name: kubevirt-ci-periodic-test-lab
     decorate: true
     labels:
