@@ -125,7 +125,7 @@ periodics:
             - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
               value: "true"
           command: ["/bin/sh", "-c"]
-          args: ["ls && /usr/local/bin/bundle install && bundle exec rake"]
+          args: ["/usr/local/bin/bundle install && bundle exec rake"]
 
   - interval: 24h
     name: kubevirt-io-periodic-release-changelog
@@ -150,6 +150,11 @@ periodics:
     labels:
       preset-dind-enabled: "true"
       preset-docker-mirror: "true"
+    extra_refs:
+      - org: the-shadowmen
+        repo: kubevirt-tutorial
+        base_ref: feature/testing
+        path_alias: kubevirt-tutorial
     spec:
       nodeSelector:
         region: primary
@@ -159,7 +164,7 @@ periodics:
             - "/usr/local/bin/runner.sh"
             - "/bin/sh"
             - "-c"
-            - "git clone https://github.com/the-shadowmen/kubevirt-tutorial.git --single-branch --branch feature/testing && cd kubevirt-tutorial && export TARGET=k8s-1.13.3 && make tests"
+            - "export TARGET=k8s-1.13.3 && make tests"
           securityContext:
             privileged: true
 
