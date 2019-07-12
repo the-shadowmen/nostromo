@@ -55,7 +55,6 @@ deck:
   spyglass:
     size_limit: 500000000 # 500MB
     viewers:
-      "logs/*\\.log": ["logs"]
       "started.json|finished.json": ["metadata-viewer"]
 ￼	  "build-log.txt": ["build-log-viewer"]
 ￼	  "artifacts/junit.*\\.xml": ["junit-viewer"]
@@ -109,9 +108,14 @@ presets:
     readOnly: true
 
 periodics:
-  - interval: 24h
+  - interval: 10m
     name: kubevirt-io-periodic-link-checker
     decorate: true
+    extra_refs:
+      - org: the-shadowmen
+        repo: kubevirt.github.io.git
+        base_ref: master
+        path_alias: kubevirt.github.io
     spec:
       nodeSelector:
         region: primary
@@ -121,7 +125,7 @@ periodics:
             - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
               value: "true"
           command: ["/bin/sh", "-c"]
-          args: ["git clone https://github.com/the-shadowmen/kubevirt.github.io.git && cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
+          args: ["cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
 
   - interval: 24h
     name: kubevirt-io-periodic-release-changelog
