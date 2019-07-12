@@ -113,7 +113,7 @@ periodics:
     decorate: true
     extra_refs:
       - org: the-shadowmen
-        repo: kubevirt.github.io.git
+        repo: kubevirt.github.io
         base_ref: master
         path_alias: kubevirt.github.io
     spec:
