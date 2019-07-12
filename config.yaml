@@ -125,7 +125,7 @@ periodics:
             - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
               value: "true"
           command: ["/bin/sh", "-c"]
-          args: ["cd kubevirt.github.io && /usr/local/bin/bundle install && bundle exec rake"]
+          args: ["ls && /usr/local/bin/bundle install && bundle exec rake"]
 
   - interval: 24h
     name: kubevirt-io-periodic-release-changelog
